@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Developers World</title>
+  <link rel="icon" type="image/x-icon" href="logoimg3.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-image: url(./backgroundimage2.png);
+    }
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 0px;
+    }
+    nav div img {}
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      text-decoration: none;
+      margin-top: 5px;
+    }
+    nav ul li {
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 20px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+      align-items: center;
+      color: #2c0346;
+      border: 1px solid transparent;
+      height: 30px;
+      width: 100px;
+      border-radius: 5px;
+      gap: 0px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #2c0346;
+      text-align: center;
+      align-items: center;
+    }
+    nav .loginbtn {
+      background-color: #2c0346;
+      color: white;
+      height: 30px;
+      width: 100px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    nav .loginbtn:hover {
+      background-color: rgb(131, 22, 131);
+    }
+    .searchinput {
+      width: 250px;
+      height: 34px;
+      border-radius: 5px;
+      border: 1px solid transparent;
+      background-color: rgba(128, 128, 128, 0.262);
+      padding-left: 10px;
+      font-size: 15px;
+    }
+    .search-btn {
+      color: aliceblue;
+      background-color: #2c0346;
+      cursor: pointer;
+      border: 1px solid #2c0346;
+      border-radius: 5px;
+    }
+    .search-btn:hover {
+      background-color: #2c0346;
+    }
+    .menu-toggle {
+  display: none;
+}
+
+    .login-container {
+      display: flex;
+      width: 800px;
+      height: 520px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: white;
+      margin: auto;
+      margin-top: 100px;
+    }
+    .login-container:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(238, 130, 238, 0.868);
+    }
+    .left-section {
+      background: linear-gradient(#2c0346,violet);
+      color: white;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+    .left-section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .left-section p {
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .right-section {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .right-section h2 {
+      color: #2c0346;
+      margin-bottom: 20px;
+    }
+    .input-box {
+      margin-bottom: 20px;
+    }
+    .input-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+    }
+    .input-box input:focus {
+      border-color: #2c0346;
+      box-shadow: 0 0 5px rgba(44, 3, 70, 0.4);
+    }
+    .btn {
+      background: linear-gradient(#2c0346,violet);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+    .btn:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 24px rgba(238, 130, 238, 0.868);
+    }
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      background-color: white;
+      color: #444;
+      border: 1px solid #ccc;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+    .google-btn img {
+      width: 20px;
+      height: 20px;
+    }
+    .google-btn:hover {
+      background-color: #f5f5f5;
+    }
+    .links {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .links a {
+      color: #2c0346;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      background-color: rgba(0, 0, 0, 0.5); 
+      justify-content: center; 
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 500px;
+      max-width: 90%;
+       box-shadow: 0 8px 24px white;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin: 15px 0;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .tab {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #f5f5f5;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .tab.active {
+      background: #2c0346;
+      color: white;
+      border-color: #2c0346;
+    }
+
+    .hint {
+      text-align: center;
+      color: gray;
+      font-size: 14px;
+    }
+
+    .search-wrapper {
+      position: relative;
+    }try agin
+
+    .search-wrapper input {
+      padding-left: 35px;
+    }
+
+    .search-wrapper::before {
+      content: "🔍";
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: gray;
+    }
+    @media (max-width: 430px) {
+      body {
+        font-size: 15px;
+        padding: 0;
+        margin: 0;
+        background-image: url(./backgroundimage2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      nav {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 0 0 0;
+        min-height: 60px;
+        width: 100vw;
+        position: relative;
+        z-index: 100;
+        background: #fff;
+        box-shadow: 0 2px 12px #2c03461a;
+      }
+      nav .logo {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: 100vw;
+        justify-content: space-between;
+        padding: 0 12px;
+      }
+      nav .logo img {
+        width: 38px;
+        height: 38px;
+        padding-bottom: 0;
+      }
+      nav h1 {
+        font-size: 18px !important;
+        font-weight: 700;
+        color: #2c0346;
+        margin: 0;
+        padding: 0;
+      }
+      .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2.2rem;
+        color: #2c0346;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: 10px;
+        z-index: 101;
+      }
+      nav .search-btn-mobile {
+        display: block !important;
+        background: linear-gradient(135deg, #2c0346 60%, violet 100%);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+        margin-left: 8px;
+        margin-right: 8px;
+        box-shadow: 0 2px 8px #2c034633;
+        cursor: pointer;
+        transition: background 0.2s;
+        align-items: center;
+        justify-content: center;
+      }
+      nav .search-btn-mobile:hover {
+        background: linear-gradient(135deg, violet 60%, #2c0346 100%);
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 75vw;
+        max-width: 320px;
+        height: 100vh;
+        background: #fff;
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        z-index: 999;
+        box-shadow: 2px 0 24px #2c0346a8;
+        padding: 60px 0 10px 0;
+        margin: 0;
+        border-radius: 0 18px 18px 0;
+        transition: left 0.3s;
+      }
+      nav ul.active {
+        display: flex;
+        left: 0;
+        transition: left 0.3s;
+      }
+      nav ul li {
+        width: 100vw;
+        font-size: 17px;
+        height: 44px;
+        margin: 0;
+        text-align: left;
+        padding-left: 24px;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        border: none;
+        background: none;
+        justify-content: flex-start;
+      }
+      nav ul li a {
+        width: 100%;
+        text-align: left;
+        padding: 0;
+        margin: 0;
+        font-size: 17px;
+        background: none;
+        border: none;
+      }
+      nav .loginbtn {
+        margin: 8px 0;
+        height: 36px;
+        width: 90vw;
+        border-radius: 6px;
+        background: linear-gradient(90deg, #2c0346 60%, violet 100%);
+        color: #fff;
+        font-weight: 600;
+        font-size: 17px;
+        border: none;
+        text-align: left;
+        padding-left: 18px;
+        cursor: pointer;
+        display: block;
+      }
+      .searchinput {
+        width: 90vw;
+        min-width: 0;
+        font-size: 15px;
+        margin-bottom: 8px;
+        border-radius: 6px;
+        border: 1px solid #2c0346;
+        background: #f3e9ff;
+        padding: 10px 12px;
+        color: #2c0346;
+        outline: none;
+        transition: border 0.2s;
+      }
+      .search-input:focus {
+        border: 1.5px solid violet;
+        background: #fff;
+      }
+      .search-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        font-size: 18px;
+        padding: 0;
+        background: linear-gradient(135deg, #2c0346 60%, violet 100%);
+        color: #fff;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 4px;
+        box-shadow: 0 2px 8px #2c034633;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .search-btn:hover {
+        background: linear-gradient(135deg, violet 60%, #2c0346 100%);
+      }
+      .login-container {
+        flex-direction: column;
+        width: 98vw;
+        min-width: 0;
+        height: auto;
+        margin: 32px auto 0 auto;
+        box-shadow: 0 2px 10px rgba(44,3,70,0.13);
+        border-radius: 14px;
+        overflow: hidden;
+        padding: 0;
+      }
+      .left-section {
+        padding: 28px 16px 18px 16px;
+        min-height: 120px;
+        text-align: center;
+        border-radius: 14px 14px 0 0;
+      }
+      .left-section h2 {
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
+      .left-section p {
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .right-section {
+        padding: 22px 14px 24px 14px;
+        border-radius: 0 0 14px 14px;
+      }
+      .right-section h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+      .input-box {
+        margin-bottom: 16px;
+      }
+      .input-box input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        outline: none;
+      }
+      .input-box input:focus {
+        border-color: #2c0346;
+        box-shadow: 0 0 5px rgba(44, 3, 70, 0.18);
+      }
+      .btn {
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 6px;
+        width: 100%;
+      }
+      .google-btn {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+        width: 100%;
+        margin-top: 12px;
+      }
+      .google-btn img {
+        width: 18px;
+        height: 18px;
+      }
+      .links {
+        margin-top: 16px;
+        font-size: 13px;
+      }
+      .mobile-only {
+        display: list-item !important;
+      }
+      .login-btn1 {
+        width: 100px;
+        background-color: #2c0346;
+        color: white;
+        border-radius: 4px;
+        font-size: 15px;
+        border: none;
+        padding: 6px 0;
+      }
+    }
+    @media (min-width: 431px) {
+      .mobile-only {
+        display: none !important;
+      }
+    }
+   @media (max-width: 430px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+@media (max-width: 430px) {
+  .modal-content {
+    width: 95vw;
+    padding: 10px;
+  }
+
+  .search-input {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .tabs {
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .tab {
+    padding: 4px 10px;
+    font-size: 13px; 
+  }
+}
+
+  </style>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <img src="logoimg3.png" alt="Logo" height="60px" width="60px" style="padding-bottom: 10px;">
+    <h1 style="font-weight: 800;  font-size: 20px; padding-bottom: 10px;">DevelopersWorld</h1>
+    <button class="search-btn-mobile" aria-label="Search" onclick="openModal()" style="display:none; margin-left: 100px;">
+      <i class="fa fa-search"></i>
+    </button>
+    <button class="menu-toggle" aria-label="Open Menu">&#9776;</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#aboutus">About</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li class="mobile-only"><a href="login.html"><button class="login-btn1">login</button></a></li>
+      <li class="mobile-only"><a href="signup.html"><button class="login-btn1">signup</button></a></li>
+    </ul>
+  </div>
+  <ul>
+    <input type="text" placeholder="search . . ." class="searchinput" onclick="openModal()">
+    <button type="submit" class="search-btn"
+      style="color: aliceblue; background-color: #2c0346 ; cursor: pointer; border: 1px solid #2c0346; border-radius: 5px;">
+      <i class="fa fa-search"></i></button>
+    <li><a href="login.html"><button class="loginbtn" style="height: 36px;">login</button></a></li>
+    <li><a href="signup.html"><button class="loginbtn" style="height: 36px;">signup</button></a></li>
+  </ul>
+</nav>
+  <div class="login-container">
+    <div class="left-section">
+      <h2>Welcome Back!</h2>
+      <p>Login to access exclusive deals, personalized recommendations, and much more from Developers World.</p>
+    </div>
+    <div class="right-section">
+      <h2>Login</h2>
+      <form>
+        <div class="input-box">
+          <input type="text" placeholder="Enter Email / Mobile Number" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Enter Password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <button class="google-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+        Continue with Google
+      </button>
+      <div class="links">
+        <p>New here? <a href="signup.html">Create an account</a></p>
+        <p><a href="#">Forgot password?</a></p>
+      </div>
+    </div>
+  </div>
+  <div id="searchModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Search</h2>
+
+      <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Type to search...">
+      </div>
+
+      <div class="tabs">
+        <div class="tab active">All</div>
+        <div class="tab">Courses</div>
+        <div class="tab">Tutorials</div>
+        <div class="tab">Blog Posts</div>
+      </div>
+
+      <div class="hint">Type at least 2 characters to search</div>
+    </div>
+  </div>
+<script>
+  const modal = document.getElementById("searchModal");
+
+    function openModal() {
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    };
+    const tabs = document.querySelectorAll(".tab");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+      });
+    });
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.logo ul');
+    if (menuBtn && navMenu) {
+      menuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        menuBtn.innerHTML = navMenu.classList.contains('active') ? '&times;' : '&#9776;';
+      });
+    }
+    function handleMobileSearchBtn() {
+      const searchBtnMobile = document.querySelector('.search-btn-mobile');
+      if (window.innerWidth <= 430) {
+        searchBtnMobile.style.display = 'block';
+      } else {
+        searchBtnMobile.style.display = 'none';
+      }
+    }
+    window.addEventListener('resize', handleMobileSearchBtn);
+    handleMobileSearchBtn();
+  });
+</script>
+</body>
